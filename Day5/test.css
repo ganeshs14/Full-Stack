@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #FFCCB3;
+}
+
+.a-test {
+  background-color: #F29393;
+}
+
+.a-test h1 {
+  color: #554994;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#a-id {
+  background-color: #E64848;
+  color:#FFFDE3;
+  border: 2px dashed #2A0944;
+}
+
+p {
+  background-color: #820000;
+  color: #FF7C7C;
+  font-size: 0.8cm;
+}
