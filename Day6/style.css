@@ -1,0 +1,55 @@
+/* Changes the default styling of the browser */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.test-class {
+  background-color: #FFFDE3;
+  color: #820000;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.parent {
+  background-color: #D61C4E;
+  width: 100%;
+  height: 300px;
+}
+
+.child {
+  display: inline-block;
+  background-color: #FEDB39;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.a {
+  position: relative;
+  background-color: #3FA796;
+  height: 400px;
+  width: 400px;
+}
+
+.b1 {
+  position: absolute;
+  background-color: #FEC260;
+  height: 80px;
+  width: 80px;
+  margin: 2px;
+  top: 0;
+  left: 0;
+}
+
+.b2 {
+  position: absolute;
+  background-color: #2A0944;
+  height: 80px;
+  width: 80px;
+  margin: 2px;
+  bottom: 0;
+  right: 0;
+}
