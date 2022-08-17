@@ -91,6 +91,13 @@ body {
 }
 
 @media (min-width: 768px) {
+  .explore__menu__lists {
+    display: flex;
+    gap: 15px;
+    padding: 0 50px;
+    padding-bottom: 50px;
+ }
+
   .navbar {
     justify-content: space-between;
     padding: 5px 30px;
@@ -103,15 +110,45 @@ body {
     align-items: center;
   }
 
-  .explore__menu__lists {
-    display: flex;
-    gap: 15px;
-  }
+    #food__item__2 {
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+
+    .explore__menu__container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .explore__menu__gradient__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        to right,
+        #dd2476 0%,
+        #ff512f 51%,
+        #dd2476 100%
+        );
+      z-index: -1;
+      transform: skewY(-5deg);
+    }
+
+    .explore__menu__text {
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
 }
 
 @media (min-width: 1024px) {
 .container {
   max-width: 70%;
+}
+
+.explore__menu__lists {
+  gap: 25px;
 }
 
   .navbar__brand {
@@ -126,7 +163,9 @@ body {
 
   .hero__container {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
+    align-items: center;
   }
 
   .hero__description {
@@ -135,5 +174,13 @@ body {
 
   .hero__text {
     font-size: 38px;
+  }
+
+  .explore__menu__text {
+    font-size: 42px;
+  }
+
+  .explore__menu__container {
+    margin-top: 70px;
   }
 }
