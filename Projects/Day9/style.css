@@ -5,14 +5,15 @@
 
 body {
   font-family: 'Merriweather', serif;
-  background-color: #f9fafc;
+  background-color: #ebf2ff;
 }
 
 .navbar {
   background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
 }
 
 .navbar__brand {
@@ -23,7 +24,7 @@ body {
   width: 100%;
 }
 
-.nav__items {
+.button__primary {
   background-image: linear-gradient(
     to right,
     #dd2476 0%,
@@ -36,26 +37,103 @@ body {
     border-radius: 10px;
 }
 
-.nav__items:hover {
+.button__primary:hover {
   border: 2px solid #B9005B;
   cursor: pointer;
 }
 
+.container {
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.hero__image__container {
+  width: 100%;
+}
+
+.hero__image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+}
+
+.hero__text {
+  font-weight: 800;
+  font-size: 30px;
+  margin: 20px 0;
+  color: #2d3557;
+}
+
+.explore__menu__text {
+  margin: 30px  0 20px 0;
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  color: #2d3557;
+}
+
+.food_card_description {
+  padding: 20px;
+}
+
+.food__card {
+  background-color: #D6EFED;
+}
+
+.food__card__image__container {
+  width: 100%;
+}
+
+.food__image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
 
 @media (min-width: 768px) {
   .navbar {
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 5px 30px;
+  }
+
+  .hero__container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .explore__menu__lists {
+    display: flex;
+    gap: 15px;
   }
 }
 
-@media (min-width: 1020px) {
+@media (min-width: 1024px) {
+.container {
+  max-width: 70%;
+}
+
   .navbar__brand {
-    width: 100px;
+    width: 90px;
   }
-  .nav__items {
+
+  .button__primary {
     padding: 20px;
     font-size: 16px;
     font-weight: 600;
+  }
+
+  .hero__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__description {
+    width: 100%;
+  }
+
+  .hero__text {
+    font-size: 38px;
   }
 }
