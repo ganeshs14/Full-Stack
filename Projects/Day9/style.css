@@ -194,12 +194,13 @@ body {
 
 .footer__form__feedback {
   padding: 4px;
-  border: 1.5px solid #000;
+  border: 1.5px solid #B9005B;
 }
 
 .footer__form__submit {
   padding: 4px;
-  border: 1.5px solid #000;
+  font-weight: bold;
+  border: 1.5px solid #B9005B;
   cursor: pointer;
 }
 
@@ -256,6 +257,7 @@ body {
 
     .kitchen__card_container {
       margin-top: 40px;
+      padding: 0 30px;
     }
 
     .kitchen__card {
@@ -269,17 +271,17 @@ body {
     }
 
     .footer__text {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     .footer__form__feedback {
       padding: 8px;
-      border: 2px solid #000;
+      border: 1px solid #B9005B;
     }
 
     .footer__form__submit {
       padding: 8px;
-      border: 2px solid #000;
+      border: 2px solid #B9005B;
       cursor: pointer;
     }
 }
@@ -326,4 +328,7 @@ body {
     margin-top: 70px;
   }
 
+  .footer__text {
+    font-size: 26px;
+  }
 }
