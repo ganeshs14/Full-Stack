@@ -73,7 +73,7 @@ body {
   color: #2d3557;
 }
 
-.food_card_description {
+.food__card__description {
   padding: 20px;
 }
 
@@ -88,6 +88,76 @@ body {
 .food__image {
   width: 100%;
   border-radius: 10px 10px 0 0;
+}
+
+.kitchen__card_container {
+  padding: 30px 0 30px 0;
+  /* background-color: #EFEAD8 */
+}
+
+.kitchen__card__text {
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  color: #2d3557;
+}
+
+.kitchen__card__images__one {
+  width: 50%;
+}
+
+.kitchen__card__one {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 25px 10px -20px #000;
+}
+
+.kitchen__card__images__two {
+  width: 50%;
+}
+
+.kitchen__card__two {
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 25px 10px -20px #000;
+}
+
+.kitchen__card__images__three {
+  width: 50%;
+}
+
+.kitchen__card__three {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 25px 10px -20px #000;
+}
+
+.kitchen__card__images__four {
+  width: 50%;
+}
+
+.kitchen__card__four {
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 25px 10px -20px #000;
+}
+
+.kitchen__card__images__up {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 20px 10px 0 10px;
+}
+
+.kitchen__card__images__down {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 0 10px;
 }
 
 @media (min-width: 768px) {
@@ -140,6 +210,17 @@ body {
       margin-top: 60px;
       margin-bottom: 30px;
     }
+
+    .kitchen__card_container {
+      margin-top: 40px;
+    }
+
+    .kitchen__card {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
 }
 
 @media (min-width: 1024px) {
