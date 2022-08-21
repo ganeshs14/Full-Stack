@@ -204,6 +204,22 @@ body {
   cursor: pointer;
 }
 
+.section__before__footer {
+  margin: 20px 10px;
+  padding: 5px;
+  background-color: #FFF5E1;
+}
+
+.second_last_div {
+  width: 100%;
+}
+
+.second_last_section_image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
 @media (min-width: 768px) {
   .explore__menu__lists {
     display: flex;
@@ -284,6 +300,11 @@ body {
       border: 2px solid #B9005B;
       cursor: pointer;
     }
+
+    .section__before__footer {
+      margin: 40px 15px;
+      padding: 5px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -326,6 +347,11 @@ body {
 
   .explore__menu__container {
     margin-top: 70px;
+  }
+
+  .section__before__footer {
+    margin: 50px 15px;
+    padding: 5px;
   }
 
   .footer__text {
