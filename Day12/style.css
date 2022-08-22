@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* <!-- Pseudo classes --> */
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: red;
+}
+
+a:active {
+  color: yellow;
+}
+
+a:hover {
+  color: green;
+}
