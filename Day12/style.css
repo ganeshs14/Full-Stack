@@ -5,7 +5,7 @@
 
 /* <!-- Pseudo classes --> */
 a:link {
-  color: blue;
+  color: green;
 }
 
 a:visited {
@@ -17,5 +17,42 @@ a:active {
 }
 
 a:hover {
-  color: green;
+  color: blue;
+}
+
+/* Parent_Child */
+
+.container h2:first-child {
+  color: skyblue;
+}
+
+.container p:last-child {
+  color: #12f12f;
+}
+
+.container p:nth-child(2) {
+  color: #fff13f;
+}
+
+
+/*
+ 2n - even
+ 2n+1 - odd
+*/
+.parent p:nth-child(2n+1) {
+  color: orange;
+}
+
+/* before and after */
+
+.before_after h4::before {
+  content: "-------------->>";
+  color:red;
+  background-color: #000;
+}
+
+.before_after h4::after {
+  content: "<<--------------";
+  color:#000;
+  background-color: red;
 }
