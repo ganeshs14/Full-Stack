@@ -114,3 +114,14 @@ a:hover {
     transform: rotate(-180deg);
   }
 }
+
+.rule {
+  width: 30%;
+  height: 10px;
+  margin: auto;
+  background-color: black;
+}
+
+.rule:hover {
+  width: 100%;
+}
