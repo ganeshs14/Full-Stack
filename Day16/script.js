@@ -10,7 +10,7 @@ const saveChanges = () => {
     taskDescription: document.getElementById("task__description").value
   };
   const newCard = `
-      <div class="col-sm-12 col-md-6 col-lg-4 mt-4 mb-4 h-100" id=${taskData.id}>
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4" id=${taskData.id}>
         <div class="card shadow">
           <div class="card-header d-flex justify-content-end gap-2">
             <button type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button>
@@ -19,7 +19,7 @@ const saveChanges = () => {
           <div class="card-body">
             <img src="${taskData.imageUrl}" class="card-img-top" alt="task_image">
             <h5 class="card-title mt-3 fw-bold text-warning">${taskData.taskTitle}</h5>
-            <p class="card-text text-primary">${taskData.taskType}</p>
+            <p class="card-text fw-bold">${taskData.taskType}</p>
             <p class="card-text">${taskData.taskDescription}</p>
           </div>
         </div>
