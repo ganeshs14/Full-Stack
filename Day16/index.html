@@ -10,7 +10,7 @@
   <title>Day16</title>
 </head>
 
-<body>
+<body onload="loadInitialCardData()">
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -84,20 +84,7 @@
 
     <!-- Card -->
     <div class="row mt-4 task__container">
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card shadow">
-          <div class="card-header d-flex justify-content-end gap-2">
-            <button type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button>
-            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-          </div>
-          <div class="card-body">
-            <img src="task.png" class="card-img-top" alt="task_image">
-            <h5 class="card-title mt-3 fw-bold text-warning">Tasks to-do</h5>
-            <p class="card-text">Add tasks you want to do.</p>
-            <a href="#" class="btn btn-primary">ADD</a>
-          </div>
-        </div>
-      </div>
+
     </div>
 
   </div>
