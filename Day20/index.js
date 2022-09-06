@@ -40,7 +40,7 @@ const fileSystem = require("fs");
 //   if(err) {
 //     console.log(err);
 //   }
-});
+// });
 
 // // Deleting a file.
 // fileSystem.unlink("one_piece.txt", function(err, result){
@@ -84,3 +84,14 @@ const http = require("http");
 //   console.log(request.headers);
 //   response.end("Mochi Mochi Luffy!!!!")
 // }).listen(3000);
+
+
+http.createServer((request, response) => {
+  if (request.url === "/") {
+    response.end("Mochi Mochi Luffy!!!!")
+  }
+  else {
+    response.end("Mochi Mochi, this is not a root route!")
+  }
+
+}).listen(3000);
