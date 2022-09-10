@@ -88,14 +88,14 @@ booky.get("/author", (req, res) => {
 
 
 /*
-Route         /auth_id
+Route         /author
 Description   Get specific author based on id
 Access        PUBLIC
 Parameter     ID
 Methods       GET
 */
-booky.get("/auth_id/:ID", (req, res) => {
-  const getAuthor = database.authors.filter(
+booky.get("/author/:ID", (req, res) => {
+  const getSpecificAuthor = database.authors.filter(
     (author) => author.id === req.params.ID
   );
 
@@ -103,19 +103,76 @@ booky.get("/auth_id/:ID", (req, res) => {
     return res.json({error: `No author found for the id ${req.params.ID}`});
   }
 
-  return res.json({authors: getAuthor});
+  return res.json({authors: getSpecificAuthor});
 });
 
 
+/*
+Route         /author/book
+Description   Get specific author based on books' isbn
+Access        PUBLIC
+Parameter     isbn
+Methods       GET
+*/
+booky.get("/author/book/:isbn", (req, res)=> {
+  const getSpecificAuthor = database.authors.filter(
+    (author) => author.books.includes(req.params.isbn)
+  );
+
+  if(getSpecificAuthor.length === 0){
+    return res.json({error: `No author found for the book of  ${req.params.isbn}`});
+  }
+  return res.json({authors: getSpecificAuthor})
+});
 
 
+/*
+Route         /publication
+Description   Get all publications
+Access        PUBLIC
+Parameter     None
+Methods       GET
+*/
+booky.get("/publication", (req, res) => {
+  return res.json({publications: database.publications});
+});
+
+/*
+Route         /publication
+Description   Get specific publication based on id
+Access        PUBLIC
+Parameter     id
+Methods       GET
+*/
+booky.get("/publication/:id", (req, res) => {
+  const getSpecificPublication = database.publications.filter(
+    (publication) => publication.id === req.params.id
+  );
+
+  if(getSpecificPublication.length === 0){
+    return res.json({error: `No publication found with id ${req.params.id}`})
+  }
+  return res.json({publications: getSpecificPublication});
+});
 
 
+/*
+Route         /publication/book
+Description   Get specific publication based on book's isbn
+Access        PUBLIC
+Parameter     isbn
+Methods       GET
+*/
+booky.get("/publication/book/:isbn", (req, res) => {
+  const getSpecificPublication = database.publications.filter(
+    (publication) => publication.books.includes(req.params.isbn)
+  );
 
-
-
-
-
+  if(getSpecificPublication.length === 0){
+    return res.json({error: `No publication found with book's isbn ${req.params.isbn}`})
+  }
+  return res.json({publications: getSpecificPublication});
+});
 
 
 

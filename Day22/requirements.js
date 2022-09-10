@@ -31,13 +31,13 @@ We need an API:
 2. AUTHORS
 We need an API:
     To get all authors.   //done
-    To get a specific author.
-    To get a list of authors based on books.
+    To get a specific author based on id.      //done
+    To get a list of authors based on books.  //done
 
 
 3. PUBLICATIONS
 We need an API:
-  To get all the publications
-  To get a specific publication
-  To get a list of publication based on a book
+  To get all the publications     //done
+  To get a specific publication based on id.      //done
+  To get a list of publication based on a book.   //done
 */
