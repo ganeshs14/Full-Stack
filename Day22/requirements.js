@@ -41,3 +41,11 @@ We need an API:
   To get a specific publication based on id.      //done
   To get a list of publication based on a book.   //done
 */
+
+
+// POST Request
+/*
+1. Add new Book           //done
+2. Add new Author         //done
+3. Add new Publication    //done
+*/

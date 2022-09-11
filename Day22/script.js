@@ -1,10 +1,14 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 // Database
 const database = require("./database")
 
 // initialize
 const booky = express();
+
+booky.use(bodyParser.urlencoded({extended: true}));
+booky.use(bodyParser.json());
 
 /*
 Route         /
@@ -99,7 +103,7 @@ booky.get("/author/:ID", (req, res) => {
     (author) => author.id === req.params.ID
   );
 
-  if(getAuthor.length === 0){
+  if(getSpecificAuthor.length === 0){
     return res.json({error: `No author found for the id ${req.params.ID}`});
   }
 
@@ -175,6 +179,46 @@ booky.get("/publication/book/:isbn", (req, res) => {
 });
 
 
+/*
+Route         /book/new
+Description   Add new books
+Access        PUBLIC
+Parameter     None
+Methods       POST
+*/
+booky.post("/book/new", (req, res) => {
+  const newBook = req.body;
+  database.books.push(newBook);
+  return res.json({updatedBook: database.books});
+});
+
+
+/*
+Route         /author/new
+Description   Add new authors
+Access        PUBLIC
+Parameter     None
+Methods       POST
+*/
+booky.post("/author/new", (req, res) => {
+  const newAuthor = req.body;
+  database.authors.push(newAuthor);
+  return res.json({updatedAuthor: database.authors});
+});
+
+
+/*
+Route         /publication/new
+Description   Add new authors
+Access        PUBLIC
+Parameter     None
+Methods       POST
+*/
+booky.post("/publication/new", (req, res) => {
+  const newPublication = req.body;
+  database.publications.push(newPublication);
+  return res.json({updatedPublication: database.publications});
+});
 
 
 
