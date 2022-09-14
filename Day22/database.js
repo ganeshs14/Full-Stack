@@ -25,6 +25,7 @@ const authors = [
   }
 ]
 
+
 const publications = [
   {
     id: "1",
@@ -34,8 +35,9 @@ const publications = [
   {
     id: "2",
     name: "readx",
-    books: ["12345678", "secretBook"]
+    books: []
   }
 ]
+
 
 module.exports = {books, authors, publications};

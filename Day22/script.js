@@ -221,6 +221,77 @@ booky.post("/publication/new", (req, res) => {
 });
 
 
+/*
+Route         /publication/update/book
+Description   Update / Add new publication
+Access        PUBLIC
+Parameter     isbn
+Methods       PUT
+*/
+booky.put("/publication/update/book/:isbn", (req, res) => {
+  //update the publication in db
+  database.publications.forEach((pub) => {
+    if(pub.id === req.body.pubID){
+      return pub.books.push(req.params.isbn);
+    };
+});
+
+  //Update the books in db
+  database.books.forEach((book) => {
+    if(book.ISBN === req.params.isbn){
+      book.publications = req.body.pubID;
+      return;
+    };
+  });
+
+  return res.json({
+        books: database.books,
+        publications: database.publications,
+        msg: "Success!!"
+      });
+});
+
+
+/*
+Route         /book/delete/
+Description   Delete a book
+Access        PUBLIC
+Parameter     isbn
+Methods       DELETE
+*/
+booky.delete("/book/delete/:isbn", (req, res) => {
+  // book doesn't match isbn -> push it to another array.
+  const updatedBook = database.books.filter((del) => {
+    (del) => books.ISBN !== req.params.isbn
+  });
+  database.books = updatedBook;
+
+  return res.json({
+    books: database.books,
+    msg: `Successfully deleted book with ISBN: ${req.params.isbn}`
+  });
+});
+
+
+/*
+Route         /author/delete/
+Description   Delete a author using isbn
+Access        PUBLIC
+Parameter     isbn
+Methods       DELETE
+*/
+booky.delete("/author/delete/:_id", (req, res) => {
+  // author doesn't match id -> push it to another array.
+  const updatedAuthor = database.authors.filter((del) => {
+    (del) => authors.id !== req.params._id
+  });
+  database.authors = updatedAuthor;
+
+  return res.json({authors: database.authors});
+});
+
+
+
 
 booky.listen(3000, () => {
   console.log("Server is up & running!");
