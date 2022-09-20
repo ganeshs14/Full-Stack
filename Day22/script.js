@@ -261,10 +261,10 @@ Methods       DELETE
 */
 booky.delete("/book/delete/:isbn", (req, res) => {
   // book doesn't match isbn -> push it to another array.
-  const updatedBook = database.books.filter((del) => {
-    (del) => books.ISBN !== req.params.isbn
-  });
-  database.books = updatedBook;
+  const updatedBookDb = database.books.filter(
+    (del) => del.ISBN !== req.params.isbn
+  );
+  database.books = updatedBookDb;
 
   return res.json({
     books: database.books,
@@ -275,21 +275,58 @@ booky.delete("/book/delete/:isbn", (req, res) => {
 
 /*
 Route         /author/delete/
-Description   Delete a author using isbn
+Description   Delete a author using id
 Access        PUBLIC
 Parameter     isbn
 Methods       DELETE
 */
 booky.delete("/author/delete/:_id", (req, res) => {
   // author doesn't match id -> push it to another array.
-  const updatedAuthor = database.authors.filter((del) => {
-    (del) => authors.id !== req.params._id
-  });
-  database.authors = updatedAuthor;
+  const updatedAuthorDb = database.authors.filter(
+    (del) => del.id !== parseInt(req.params._id)
+  );
+  database.authors = updatedAuthorDb;
 
   return res.json({authors: database.authors});
 });
 
+
+/*
+Route         /book/delete/author/
+Description   Delete a author from a book and vice versa
+Access        PUBLIC
+Parameter     isbn, authorId
+Methods       DELETE
+*/
+booky.delete("/book/delete/author/:isbn/:authorId", (req, res) => {
+  // Update the book db
+  database.books.forEach((book) => {
+      if(book.ISBN === req.params.isbn) {
+        const newAuthorList = book.author.filter(
+          (eachAuthor) => eachAuthor !== parseInt(req.params.authorId)
+        );
+        book.author = newAuthorList;
+        return;
+      }
+  });
+
+  // Update the author db
+  database.authors.forEach((eachAuthor) => {
+      if(eachAuthor.id === parseInt(req.params.authorId)){
+        const newBookList = eachAuthor.books.filter(
+          (book) => book !== req.params.isbn
+        );
+        eachAuthor.books = newBookList;
+        return;
+      }
+  });
+
+  return res.json({
+    book: database.books,
+    author: database.authors,
+    message: "Author successfully deleted!!!"
+  })
+});
 
 
 
