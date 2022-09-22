@@ -1,5 +1,5 @@
-/node_modules
+Day22/node_modules
 
-package-lock.json
+Day22/package-lock.json
 
-.env
+Day22/.env
