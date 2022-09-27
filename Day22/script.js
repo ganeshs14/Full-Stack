@@ -244,6 +244,82 @@ booky.post("/publication/new", (req, res) => {
 });
 
 
+/***********************PUT******************************/
+/*
+Route         /book/update
+Description   Update new book title
+Access        PUBLIC
+Parameter     isbn
+Methods       PUT
+*/
+booky.put("/book/update/:isbn", async (req, res) => {
+    const updatedBook = await BookModel.findOneAndUpdate(
+      {
+        ISBN: req.params.isbn
+      },
+      {
+        title: req.body.bookTitle
+      },
+      {
+        new: true
+      }
+    );
+    return res.json({
+      books: updatedBook
+    });
+});
+
+// **************** Updating new author ***************** //
+/*
+Route         /book/author/update/
+Description   Update author
+Access        PUBLIC
+Parameter     isbn
+Methods       PUT
+*/
+booky.put("/book/author/update/:isbn", async (req, res) => {
+  // Update Book DB
+  const updatedBook = await BookModel.findOneAndUpdate(
+    {
+      ISBN: req.params.isbn
+    },
+    {
+      $addToSet: {
+        authors: req.body.newAuthor
+      }
+    },
+    {
+      new: true
+    }
+  );
+
+  // Update Author DB
+  const updatedAuthor = await AuthorModel.findOneAndUpdate(
+    {
+      id: req.body.newAuthor
+    },
+    {
+      $addToSet: {
+        books: req.params.isbn
+      }
+    },
+    {
+      new: true
+    }
+  );
+
+  return res.json({
+    books: updatedBook,
+    authors: updatedAuthor,
+    msg: "Author successfully added!!"
+  });
+
+});
+
+
+
+
+
 /*
 Route         /publication/update/book
 Description   Update / Add new publication
@@ -268,7 +344,7 @@ booky.put("/publication/update/book/:isbn", (req, res) => {
   });
 
   return res.json({
-        books: database.books,
+        books: databse.books,
         publications: database.publications,
         msg: "Success!!"
       });
@@ -282,15 +358,15 @@ Access        PUBLIC
 Parameter     isbn
 Methods       DELETE
 */
-booky.delete("/book/delete/:isbn", (req, res) => {
+booky.delete("/book/delete/:isbn",async (req, res) => {
   // book doesn't match isbn -> push it to another array.
-  const updatedBookDb = database.books.filter(
-    (del) => del.ISBN !== req.params.isbn
-  );
-  database.books = updatedBookDb;
-
+  const updatedBookDb = await BookModel.findOneAndDelete(
+    {
+      ISBN: req.params.isbn
+    }
+  )
   return res.json({
-    books: database.books,
+    books: updatedBookDb,
     msg: `Successfully deleted book with ISBN: ${req.params.isbn}`
   });
 });
